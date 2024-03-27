@@ -54,7 +54,9 @@ class CLIReporter(repo: Repository) extends Reporter {
 
     val topDirPath = repo.topDirectory.toPath.toAbsolutePath
 
-    val reportsDir = topDirPath.resolveSibling(s"${topDirPath.getFileName}.bfg-report")
+    // val reportsDir = topDirPath.resolveSibling(s"tmp/.bfg-report")
+    // wytten: I did not have write permission for '..', and so:
+    val reportsDir = Path.of("tmp", ".bfg-report")
 
     val dateFormatter = DateTimeFormatter.ofPattern("uuuu-MM-dd")
     val timeFormatter = DateTimeFormatter.ofPattern("HH-mm-ss")
